@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+
+body {
+  margin: 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #cefd75;
+  background: linear-gradient(0deg, rgba(#cefd75, 0.3), rgba(#a2fce3, 0.3));
+}
+
+#App {
+  width: 22vw;
+  margin: 0 auto;
+  height: 100vh;
+  overflow-y: scroll;
+  background-color: #fff;
+}
+
+.ant-form-item-explain {
+  text-align: left;
+  font-size: 12px !important;
+  margin-bottom: 10px;
+}
+
+.MuiList-root {
+  .MuiListItem-root {
+    border-bottom: 1px solid #eee;
+
+    &:last-child {
+      border: none;
+    }
+  }
+}
