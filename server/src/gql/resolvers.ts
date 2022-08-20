@@ -1,6 +1,7 @@
 import * as types from '../types';
-import * as authCtrl from '../controllers/auth.controller';
-import * as itemCtrl from '../controllers/items.controller';
+
+const authCtrl = require('../controllers/auth.controller');
+const itemCtrl = require('../controllers/items.controller');
 
 const db = require('../../models');
 

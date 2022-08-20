@@ -1,8 +1,9 @@
-import { ApolloError } from 'apollo-server';
 import * as types from '../types';
-import { GetUser } from './auth.controller';
 
 const db = require('../../models');
+const { ApolloError } = require('apollo-server');
+const { GetUser } = require('./auth.controller');
+
 
 const formatItem = async (item: types.Item): Promise<types.Item> => {
     const user = await GetUser({ id: item.userId });
@@ -10,7 +11,7 @@ const formatItem = async (item: types.Item): Promise<types.Item> => {
     return item;
 }
 
-export const GetItems = async (ctx: types.Context): Promise<[types.Item]> => {
+const GetItems = async (ctx: types.Context): Promise<[types.Item]> => {
     if (!ctx.user) throw new ApolloError('User not authorized', types.Errors.USER_NOT_AUTHORIZED);
     let items = await db.Items.findAll({
         order: [['id', 'DESC']],
@@ -22,7 +23,7 @@ export const GetItems = async (ctx: types.Context): Promise<[types.Item]> => {
     return itams as [types.Item];
 }
 
-export const CreateItem = async (_: unknown, args: types.CreatItem, ctx: types.Context): Promise<types.Item> => {
+const CreateItem = async (_: unknown, args: types.CreatItem, ctx: types.Context): Promise<types.Item> => {
     if (!ctx.user) throw new ApolloError('User not authorized', types.Errors.USER_NOT_AUTHORIZED);
     // check if user already exist. Only existing user can create a item
     const userExists = await GetUser(args.userId);
@@ -32,3 +33,5 @@ export const CreateItem = async (_: unknown, args: types.CreatItem, ctx: types.C
     const item = await db.Items.create(args) as types.Item;
     return await formatItem(item);
 }
+
+module.exports = { GetItems, CreateItem };

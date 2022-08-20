@@ -4,7 +4,6 @@ export interface Context {
     user: User;
 }
 
-
 export interface Auth {
     email: String;
     password: String;

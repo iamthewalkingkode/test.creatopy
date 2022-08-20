@@ -1,9 +1,9 @@
-import { ApolloError } from 'apollo-server';
 import * as types from '../types';
 
 const db = require('../../models');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const { ApolloError } = require('apollo-server');
 
 // better to be an .env
 const SECRET = ')Y?}PnbYMfMj#%!fJdVaSY?U}NBH9un?#L9ELUpgmCZ%DFhBZ%kH6Vung%Yu=cWa';

@@ -1,18 +1,18 @@
-import { verifyToken } from './controllers/auth.controller';
 import * as types from './types';
 
 const { ApolloServer } = require('apollo-server');
 const { ApolloServerPluginLandingPageLocalDefault } = require('apollo-server-core');
 
+const typeDefs = require('./gql/typeDefs');
+const resolvers = require('./gql/resolvers');
+const { verifyToken } = require('./controllers/auth.controller');
 const { sequelize } = require('../models');
-const GQL_typeDefs = require('./gql/typeDefs');
-const GQL_resolvers = require('./gql/resolvers');
 
 const port = 8080;
 
 const server = new ApolloServer({
-    typeDefs: GQL_typeDefs,
-    resolvers: GQL_resolvers,
+    typeDefs,
+    resolvers,
     csrfPrevention: true,
     cache: 'bounded',
     plugins: [
