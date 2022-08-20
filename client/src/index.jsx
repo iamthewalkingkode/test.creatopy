@@ -8,11 +8,11 @@ import { Provider } from 'react-redux';
 import { ApolloClient, InMemoryCache, ApolloProvider, HttpLink } from '@apollo/client';
 import { onError } from "@apollo/client/link/error";
 import { setContext } from '@apollo/client/link/context';
+import { notification } from 'antd';
+import { getStorage } from 'utils';
 
 import './index.scss';
 import './index.less';
-import { notification } from 'antd';
-import { getStorage } from 'utils';
 
 const httpLink = new HttpLink({ uri: 'http://localhost:8080' });
 const authLink = setContext((_, { headers }) => {

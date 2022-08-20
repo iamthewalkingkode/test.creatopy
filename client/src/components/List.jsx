@@ -80,7 +80,7 @@ const ListItems = () => {
                                 <ListItem key={item.id}>
                                     <ListItemAvatar>
                                         <Avatar>
-                                            <img src={`https://joeschmoe.io/api/v1/random?v${item.id}`} alt={item.user.name} />
+                                            <img src={`https://joeschmoe.io/api/v1/random?v=${item.id}`} alt={item.user.name} />
                                         </Avatar>
                                     </ListItemAvatar>
                                     <ListItemText
